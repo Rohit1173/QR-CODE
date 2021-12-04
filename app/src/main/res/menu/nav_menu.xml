@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    >
+    <group
+        android:id="@+id/grp1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/home"
+            android:icon="@drawable/ic_home"
+            android:title="HOME"
+
+            />
+    </group>
+    <group
+        android:id="@+id/grp2"
+        android:checkableBehavior="single">
+   <item
+       android:id="@+id/item1"
+       android:icon="@drawable/ic_qr_code"
+       android:title="QR GENERATOR"/>
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_qr_code_scanner"
+        android:title="QR SCANNER"/>
+    </group>
+</menu>
