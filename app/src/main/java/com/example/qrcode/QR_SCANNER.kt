@@ -1,6 +1,9 @@
 package com.example.qrcode
 
+import android.content.Intent
 import android.graphics.Color
+import android.graphics.Paint
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -33,9 +36,18 @@ lateinit var codeScanner:CodeScanner
             activity.runOnUiThread {
                 binding.scanTxt.text=it.text
                 if(URLUtil.isValidUrl(it.text)){
-                    binding.scanTxt.setTextColor(Color.BLUE)
+                    binding.scanTxt.setTextColor(Color.parseColor("#0645AD"))
+                    binding.scanTxt.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+                    val openURL = Intent(Intent.ACTION_VIEW)
+                    openURL.data = Uri.parse(it.text)
+                    startActivity(openURL)
+                    binding.scanTxt.setOnClickListener {
+                        val openURL = Intent(Intent.ACTION_VIEW)
+                        openURL.data = Uri.parse(binding.scanTxt.text.toString())
+                        startActivity(openURL)
+                    }
                 }
-              //  Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
+
             }
         }
         binding.scannerView.setOnClickListener {
