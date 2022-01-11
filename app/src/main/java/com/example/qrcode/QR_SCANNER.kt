@@ -36,7 +36,7 @@ lateinit var codeScanner:CodeScanner
             activity.runOnUiThread {
                 binding.scanTxt.text=it.text
                 if(URLUtil.isValidUrl(it.text)){
-                    binding.scanTxt.setTextColor(Color.parseColor("#0645AD"))
+                    binding.scanTxt.setTextColor(Color.BLUE)
                     binding.scanTxt.paintFlags = Paint.UNDERLINE_TEXT_FLAG
                     val openURL = Intent(Intent.ACTION_VIEW)
                     openURL.data = Uri.parse(it.text)
